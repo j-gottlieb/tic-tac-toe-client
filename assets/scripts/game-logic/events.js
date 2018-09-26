@@ -1,19 +1,16 @@
-// const api = require('./api.js')
-// const ui = require('./ui.js')
+const api = require('./api.js')
+const ui = require('./ui.js')
+const store = require('../store.js')
 // const store = require('../store.js')
 // const logic = require('./logic.js')
 //
+const onGetStats = function () {
+  console.log('getting games index')
+  api.getStats()
+    .then(ui.getStatsSuccess)
+    .catch(ui.gamesIndexFailure)
+}
 //
-// module.exports = {
-//   onNewGame,
-//   onBox0,
-//   onBox1,
-//   onBox2,
-//   onBox3,
-//   onBox4,
-//   onBox5,
-//   onBox6,
-//   onBox7,
-//   onBox8,
-//   noPlay
-// }
+module.exports = {
+  onGetStats
+}

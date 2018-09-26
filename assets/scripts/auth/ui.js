@@ -20,6 +20,7 @@ const signInSuccess = function (response) {
   $('#display-message').css('color', 'green')
   $('#change-password-form').removeClass('hidden')
   $('#sign-out-form').removeClass('hidden')
+  $('.game-stats').removeClass('hidden')
   $('#sign-in-form').addClass('hidden')
   $('#sign-up-form').addClass('hidden')
   store.user = response.user

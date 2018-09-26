@@ -1,4 +1,6 @@
 const store = require('../store.js')
+const api = require('./api.js')
+const ui = require('./ui.js')
 
 // // const game = store.cells
 // const cells = ['x', 'x', 'x', 'x', 'o', 'x', 'o', '', 'o']
@@ -16,11 +18,14 @@ let xCount
 let oCount
 
 const onNewGame = function () {
+  $('#result').addClass('hidden')
   store.cells = emptyGame
   for (let i = 0; i < store.cells.length; i++) {
     store.cells[i] = ''
   }
-
+  api.newGame()
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
   console.log(store.cells)
   xCount = 0
   oCount = 0

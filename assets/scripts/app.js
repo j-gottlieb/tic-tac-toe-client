@@ -17,4 +17,5 @@ $(() => {
   $('#sign-out-form').on('click', authEvents.onSignOut)
   // game events
   $('#new-game').on('click', gameLogic.onNewGame)
+  $('#get-stats').on('click', gameEvents.onGetStats)
 })

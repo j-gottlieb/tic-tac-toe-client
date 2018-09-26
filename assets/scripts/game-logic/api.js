@@ -2,15 +2,26 @@ const config = require('../config.js')
 const store = require('../store.js')
 
 const newGame = function () {
-  store.cells = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
 }
 
-const box1 = function () {
-  store.cells[0].push('x')
-  console.log(store.cells)
+const getStats = function (userId) {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
 }
 
 module.exports = {
   newGame,
-  box1
+  getStats
 }
