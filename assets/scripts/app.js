@@ -17,13 +17,4 @@ $(() => {
   $('#sign-out-form').on('click', authEvents.onSignOut)
   // game events
   $('#new-game').on('click', gameLogic.onNewGame)
-  $('#box0').on('click', gameEvents.onBox0)
-  $('#box1').on('click', gameEvents.onBox1)
-  $('#box2').on('click', gameEvents.onBox2)
-  $('#box3').on('click', gameEvents.onBox3)
-  $('#box4').on('click', gameEvents.onBox4)
-  $('#box5').on('click', gameEvents.onBox5)
-  $('#box6').on('click', gameEvents.onBox6)
-  $('#box7').on('click', gameEvents.onBox7)
-  $('#box8').on('click', gameEvents.onBox8)
 })
