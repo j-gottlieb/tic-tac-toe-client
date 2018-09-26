@@ -3,7 +3,7 @@ const store = require('../store.js')
 
 const signUp = function (credentials) {
   return $.ajax({
-    url: 'https://aqueous-atoll-85096.herokuapp.com/sign-up',
+    url: config.apiUrl + '/sign-up',
     method: 'POST',
     data: credentials
   })
@@ -11,7 +11,7 @@ const signUp = function (credentials) {
 
 const signIn = function (credentials) {
   return $.ajax({
-    url: 'https://aqueous-atoll-85096.herokuapp.com/sign-in',
+    url: config.apiUrl + '/sign-in',
     method: 'POST',
     data: credentials
   })
@@ -19,7 +19,7 @@ const signIn = function (credentials) {
 
 const changePassword = function (passwords) {
   return $.ajax({
-    url: 'https://aqueous-atoll-85096.herokuapp.com/change-password',
+    url: config.apiUrl + '/change-password',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
@@ -30,7 +30,7 @@ const changePassword = function (passwords) {
 
 const signOut = function () {
   return $.ajax({
-    url: 'https://aqueous-atoll-85096.herokuapp.com/sign-out',
+    url: config.apiUrl + '/sign-out',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
