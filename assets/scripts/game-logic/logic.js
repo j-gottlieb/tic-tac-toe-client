@@ -114,8 +114,8 @@ const onBoxClick = function (boxNum) {
         'over': false
       }
       api.updateGame(data)
-        .then(console.log)
-        .catch(console.log)
+        .then()
+        .catch()
       $(`#box${boxNum}`).text('x')
     } else if (xCount > oCount && store.cells[boxNum] === '') {
       store.cells[boxNum] = 'o'
@@ -128,8 +128,8 @@ const onBoxClick = function (boxNum) {
         'over': false
       }
       api.updateGame(data)
-        .then(console.log)
-        .catch(console.log)
+        .then()
+        .catch()
     }
     // console.log(xCount, oCount)
   }
@@ -138,7 +138,7 @@ const onBoxClick = function (boxNum) {
 
 const victoryCheck = function () {
   // victory contains all victory cases
-  const victoryCases = ['036', '147', '258', '012', '345', '678', '048', '246']
+  const victoryCases = [[0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [2, 4, 6]]
   const xArr = []
   const oArr = []
   // push coordinate to its corresponding array
@@ -152,32 +152,36 @@ const victoryCheck = function () {
   // turn moves into string coordinates
   const xSort = xArr.sort().join('').toString()
   const oSort = oArr.sort().join('').toString()
+  console.log(xSort, oSort)
   // iterate through victoryCases and check if xcoord includes victoryCases[i]
   for (let i = 0; i < victoryCases.length; i++) {
-    if (xSort.includes(victoryCases[i])) {
-      console.log('Victory!')
+    if (victoryCases[i].every(function (num) {
+      return (xArr.indexOf(num) >= 0)
+    })) {
       victory()
       api.gameOver()
         .then(console.log)
         .catch(console.log)
-    } else if (oSort.includes(victoryCases[i])) {
-      console.log('Defeat!')
+    } else if (victoryCases[i].every(function (num) {
+      return (oArr.indexOf(num) >= 0)
+    })) {
+      // console.log('Defeat!')
       defeat()
       api.gameOver()
-        .then(console.log)
-        .catch(console.log)
+        .then()
+        .catch()
     }
   }
   // if the game isnt over, but there are still spaces, keep playing, if no spaces
   // its a tie
   if (store.cells.every((i) => { return i !== '' })) {
-    console.log('Its a tie!')
+    // console.log('Its a tie!')
     tie()
     api.gameOver()
-      .then(console.log)
-      .catch(console.log)
+      .then()
+      .catch()
   } else {
-    console.log('keep playing')
+    // console.log('keep playing')
   }
 }
 
