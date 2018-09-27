@@ -51,7 +51,6 @@ const victory = function () {
   for (let i = 0; i < 9; i++) {
     $(`#box${i}`).off()
   }
-  // noPlay()
 }
 
 const defeat = function () {
@@ -62,7 +61,6 @@ const defeat = function () {
   for (let i = 0; i < 9; i++) {
     $(`#box${i}`).off()
   }
-  // noPlay()
 }
 
 const tie = function () {
@@ -70,26 +68,7 @@ const tie = function () {
   $('.result').text('Its a TIE!')
   $('#game-message').addClass('hidden')
   $('.result').css('color', 'blue')
-  // noPlay()
 }
-//
-// const emptyGame = ['', '', '', '', '', '', '', '', '']
-//
-// const onNewGame = function () {
-//   store.cells = emptyGame
-//   console.log(store.cells)
-//   $('.game-board').removeClass('hidden')
-//   $('#box0, #box1, #box2, #box3, #box4, #box5, #box6, #box7, #box8').html('')
-//   $('#box0').on('click', gameEvents.onBox0)
-//   $('#box1').on('click', gameEvents.onBox1)
-//   $('#box2').on('click', gameEvents.onBox2)
-//   $('#box3').on('click', gameEvents.onBox3)
-//   $('#box4').on('click', gameEvents.onBox4)
-//   $('#box5').on('click', gameEvents.onBox5)
-//   $('#box6').on('click', gameEvents.onBox6)
-//   $('#box7').on('click', gameEvents.onBox7)
-//   $('#box8').on('click', gameEvents.onBox8)
-// }
 
 const onBoxClick = function (boxNum) {
   if (newGameCheck()) {
@@ -149,11 +128,6 @@ const victoryCheck = function () {
       oArr.push(i)
     }
   }
-  // turn moves into string coordinates
-  const xSort = xArr.sort().join('').toString()
-  const oSort = oArr.sort().join('').toString()
-  console.log(xSort, oSort)
-  // iterate through victoryCases and check if xcoord includes victoryCases[i]
   for (let i = 0; i < victoryCases.length; i++) {
     if (victoryCases[i].every(function (num) {
       return (xArr.indexOf(num) >= 0)
@@ -170,18 +144,13 @@ const victoryCheck = function () {
       api.gameOver()
         .then()
         .catch()
+    } else if (xArr.length === 5) {
+    // if (store.cells.every((i) => { return i !== '' }))
+      tie()
+      api.gameOver()
+        .then()
+        .catch()
     }
-  }
-  // if the game isnt over, but there are still spaces, keep playing, if no spaces
-  // its a tie
-  if (store.cells.every((i) => { return i !== '' })) {
-    // console.log('Its a tie!')
-    tie()
-    api.gameOver()
-      .then()
-      .catch()
-  } else {
-    // console.log('keep playing')
   }
 }
 
