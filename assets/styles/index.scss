@@ -1,25 +1,31 @@
 @import '~bootstrap/scss/bootstrap';
 
+
+
 .hidden {
   display: none;
 }
 
 h1 {
-  font-family: 'Notable', sans-serif;
+  font-family: 'Permanent Marker', cursive;
   font-size: 50px;
   text-align: center;
 }
 
 .box {
-  border: 2px solid black;
+  border: 2px solid #000;
   height: 50px;
   width: 50px;
 }
 
+.pic-container {
+  // height: 500px;
+  // margin: auto;
+}
+
 .picture {
-  // background-color: black;
-  // background-image: url('./images/tic-tac-toe.png');
-  // height: auto;
-  // margin: 50px auto;
-  // width: 100%;
+  display: block;
+  margin: 40px auto auto;
+  max-height: auto;
+  max-width: 50%;
 }

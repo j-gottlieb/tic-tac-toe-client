@@ -18,7 +18,7 @@ let xCount
 let oCount
 
 const onNewGame = function () {
-  $('#result').addClass('hidden')
+  $('#result, .pic-container').addClass('hidden')
   store.cells = emptyGame
   for (let i = 0; i < store.cells.length; i++) {
     store.cells[i] = ''

@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Jesse's Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
       <link href="https://fonts.googleapis.com/css?family=Notable" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <div class="container">
       <h1>Tic Tac Toe</h1>
       <br>
-    <div class="container authentication">
       <div class="buttons row align-items-center">
         <button class="col" id="sign-up-btn" type="submit">Sign Up</button>
         <button class="col" id="sign-in-btn"type="submit">Sign In</button>
@@ -45,16 +46,15 @@
             </div>
             <div id="display-message">
           </div>
-        </div>
-          <div class="container game-stats hidden">
-            <button id="get-stats" type="submit">Get Game Stats</button>
-            <button id="hide-stats" class="hidden" type="submit">Hide Stats</button>
-            <div id="stats-display"></div>
+          <div class="container game-buttons row align-items-center hidden">
+            <button class="col" id="get-stats" type="submit">Get Game Stats</button>
+            <button class="col hidden" id="hide-stats" type="submit">Hide Stats</button>
+            <button class="col hidden" id="new-game" type="submit">New Game</button>
           </div>
-    <button id="new-game" class="hidden" type="submit">New Game</button>
-    <div id="game-message"></div>
+        <div id="stats-display"></div>
     <div id="result" class="hidden"></div>
     <div class="container game-board hidden">
+      <div id="game-message"></div>
       <div class="row top-row">
         <div id="box0" class="col-md-4 box">1</div>
         <div id="box1" class="col-md-4 box">2</div>
@@ -71,7 +71,9 @@
         <div id="box8" class="col-md-4 box">9</div>
       </div>
     </div>
-    <div class="picture">
-    </div>
+    <div class="container pic-container">
+      <img class="picture" alt="tic tac toe" src="../../images/tic-tac-toe-2.jpg"/>
+  </div>
+  </div>
       </body>
 </html>

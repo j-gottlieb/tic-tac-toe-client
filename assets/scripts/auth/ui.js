@@ -18,7 +18,7 @@ const signInSuccess = function (response) {
   $('#display-message').html('')
   $('#sign-in-form').trigger('reset')
   $('#display-message').css('color', 'green')
-  $('#sign-out-form,.game-stats,#change-password-btn,#new-game').removeClass('hidden')
+  $('#sign-out-form,.game-buttons,#change-password-btn,#new-game').removeClass('hidden')
   $('#sign-in-btn,#sign-up-btn,#sign-in-form').addClass('hidden')
   store.user = response.user
   $('#display-message').append(`<p>Welcome, ${store.user.email} </p>`)
@@ -48,8 +48,8 @@ const signOutSuccess = function () {
   $('#display-message').html('You have successfully signed out')
   $('#display-message').css('color', 'green')
   // console.log('where are my buttons?')
-  $('#sign-out-form, #change-password-btn, #change-password-form, #new-game, .game-stats').addClass('hidden')
-  $('#sign-in-btn, #sign-up-btn').removeClass('hidden')
+  $('#sign-out-form, .game-board, #change-password-btn, #change-password-form, #new-game, .game-buttons').addClass('hidden')
+  $('#sign-in-btn, #sign-up-btn, .pic-container').removeClass('hidden')
   // console.log('where are my buttons?')
 }
 
