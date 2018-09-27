@@ -20,4 +20,6 @@ $(() => {
   $('#get-stats').on('click', gameEvents.onGetStats)
   $('#sign-up-btn').on('click', authEvents.onShowSignUp)
   $('#sign-in-btn').on('click', authEvents.onShowSignIn)
+  $('#change-password-btn').on('click', authEvents.onShowChangePassword)
+  $('#hide-stats').on('click', gameEvents.hideStats)
 })

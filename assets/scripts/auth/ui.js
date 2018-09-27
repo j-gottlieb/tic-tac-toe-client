@@ -44,17 +44,18 @@ const changePasswordFailure = function () {
 }
 
 const signOutSuccess = function () {
+  // console.log('youre singing out')
   $('#display-message').html('You have successfully signed out')
   $('#display-message').css('color', 'green')
-  $('#change-password-form').addClass('hidden')
-  $('#sign-out-form').addClass('hidden')
-  $('#sign-in-form').removeClass('hidden')
-  $('#sign-up-form').removeClass('hidden')
+  // console.log('where are my buttons?')
+  $('#sign-out-form, #change-password-btn, #change-password-form, #new-game, .game-stats').addClass('hidden')
+  $('#sign-in-btn, #sign-up-btn').removeClass('hidden')
+  // console.log('where are my buttons?')
 }
 
 const signOutFailure = function () {
-  $('#display-message').html("You aren't signed in!")
-  $('#display-message').css('color', 'red')
+  // $('#display-message').html("You aren't signed in!")
+  // $('#display-message').css('color', 'red')
 }
 
 module.exports = {

@@ -5,12 +5,19 @@ const ui = require('./ui.js')
 // const logic = require('./logic.js')
 //
 const onGetStats = function () {
-  console.log('getting games index')
+  $('#hide-stats,#stats-display').removeClass('hidden')
   api.getStats()
     .then(ui.getStatsSuccess)
     .catch(ui.gamesIndexFailure)
 }
+
+const hideStats = function () {
+  console.log('hiding games index')
+  $('#hide-stats').addClass('hidden')
+  $('#stats-display').addClass('hidden')
+}
 //
 module.exports = {
-  onGetStats
+  onGetStats,
+  hideStats
 }

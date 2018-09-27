@@ -21,10 +21,15 @@ const getStatsSuccess = function (response) {
       userGames.push(game[i])
     }
   }
-  $('#stats-display').html('')
-  $('#stats-display').append(`<p>Hey, ${store.user.email}! Here are the games you've played:</p>`)
-  for (let i = 0; i < userGames.length; i++) {
-    $('#stats-display').append(`Game${i + 1}: id:${userGames[i].id}, moves: ${userGames[i].cells}</p>`)
+  if (userGames.length === 0) {
+    $('#stats-display').html('')
+    $('#stats-display').append(`<p>Hey, ${store.user.email}! You haven't played any games yet!</p>`)
+  } else {
+    $('#stats-display').html('')
+    $('#stats-display').append(`<p>Hey, ${store.user.email}! Here are the games you've played:</p>`)
+    for (let i = 0; i < userGames.length; i++) {
+      $('#stats-display').append(`Game${i + 1}: id:${userGames[i].id}, moves: ${userGames[i].cells}</p>`)
+    }
   }
 }
 
