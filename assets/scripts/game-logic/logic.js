@@ -115,6 +115,18 @@ const onBoxClick = function (boxNum) {
   victoryCheck()
 }
 
+const tieCheck = function (xArr) {
+  console.log('tie is working')
+  console.log(xArr)
+  if (xArr.length === 5) {
+    console.log('this should be a tie')
+    tie()
+    api.gameOver()
+      .then()
+      .catch()
+  }
+}
+
 const victoryCheck = function () {
   // victory contains all victory cases
   const victoryCases = [[0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [2, 4, 6]]
@@ -139,17 +151,15 @@ const victoryCheck = function () {
     } else if (victoryCases[i].every(function (num) {
       return (oArr.indexOf(num) >= 0)
     })) {
-      // console.log('Defeat!')
       defeat()
       api.gameOver()
         .then()
         .catch()
-    } else if (xArr.length === 5) {
-    // if (store.cells.every((i) => { return i !== '' }))
-      tie()
-      api.gameOver()
-        .then()
-        .catch()
+    } else if (xArr.length === 5 && !(victoryCases[i].every(function (num) {
+      return (xArr.indexOf(num) >= 0)
+    }))
+    ) {
+      tieCheck(xArr)
     }
   }
 }
