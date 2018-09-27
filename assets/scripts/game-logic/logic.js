@@ -18,6 +18,7 @@ let xCount
 let oCount
 
 const onNewGame = function () {
+  $('#game-message').removeClass('hidden')
   $('#result, .pic-container').addClass('hidden')
   store.cells = emptyGame
   for (let i = 0; i < store.cells.length; i++) {
@@ -66,8 +67,9 @@ const defeat = function () {
 
 const tie = function () {
   $('#result').removeClass('hidden')
-  $('#result').text('ITS A TIE!')
+  $('.result').text('Its a TIE!')
   $('#game-message').addClass('hidden')
+  $('.result').css('color', 'blue')
   // noPlay()
 }
 //
