@@ -48,7 +48,7 @@ const signOutSuccess = function () {
   $('#display-message').html('You have successfully signed out')
   $('#display-message').css('color', 'green')
   // console.log('where are my buttons?')
-  $('#sign-out-form, .game-board, #change-password-btn, #change-password-form, #new-game, .game-buttons').addClass('hidden')
+  $('#sign-out-form, #stats-display, .result, .game-board, #change-password-btn, #change-password-form, #new-game, .game-buttons').addClass('hidden')
   $('#sign-in-btn, #sign-up-btn, .pic-container').removeClass('hidden')
   // console.log('where are my buttons?')
 }
