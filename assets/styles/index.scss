@@ -51,7 +51,8 @@ h1 {
   max-width: 50%;
 }
 
-.game-message .result {
+.game-message, .result {
   font-family: 'Permanent Marker', cursive;
   font-size: 70px;
+  text-align: center;
 }
