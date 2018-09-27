@@ -43,8 +43,9 @@ const onNewGame = function () {
 
 const victory = function () {
   $('#result').removeClass('hidden')
-  $('#result').text('VICTORY!')
+  $('.result').text('VICTORY!')
   $('#game-message').addClass('hidden')
+  $('.result').css('color', 'green')
   // console.log(xCount, oCount)
   for (let i = 0; i < 9; i++) {
     $(`#box${i}`).off()
@@ -54,8 +55,9 @@ const victory = function () {
 
 const defeat = function () {
   $('#result').removeClass('hidden')
-  $('#result').text('DEFEAT!')
+  $('.result').text('DEFEAT!')
   $('#game-message').addClass('hidden')
+  $('.result').css('color', 'red')
   for (let i = 0; i < 9; i++) {
     $(`#box${i}`).off()
   }
