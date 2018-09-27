@@ -18,4 +18,6 @@ $(() => {
   // game events
   $('#new-game').on('click', gameLogic.onNewGame)
   $('#get-stats').on('click', gameEvents.onGetStats)
+  $('#sign-up-btn').on('click', authEvents.onShowSignUp)
+  $('#sign-in-btn').on('click', authEvents.onShowSignIn)
 })

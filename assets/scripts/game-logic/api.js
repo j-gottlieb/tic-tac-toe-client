@@ -1,12 +1,40 @@
 const config = require('../config.js')
 const store = require('../store.js')
 
-const newGame = function () {
+const newGame = function (letter, number) {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'POST',
     headers: {
       Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+
+const updateGame = function (cells) {
+  return $.ajax({
+    url: config.apiUrl + `/games/${store.user.id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: {
+      'game': cells
+    }
+  })
+}
+
+const gameOver = function (cells) {
+  return $.ajax({
+    url: config.apiUrl + `/games/${store.user.id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: {
+      'game': {
+        'over': true
+      }
     }
   })
 }
@@ -23,5 +51,7 @@ const getStats = function (userId) {
 
 module.exports = {
   newGame,
-  getStats
+  getStats,
+  updateGame,
+  gameOver
 }

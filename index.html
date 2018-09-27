@@ -6,6 +6,7 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Notable" rel="stylesheet">
 
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -15,29 +16,29 @@
       <h1>Tic Tac Toe</h1>
       <br>
     <div class="container authentication">
-      <form id="sign-up-form">
-              <legend>Sign Up!</legend>
+      <button id="sign-up-btn" type="submit">Sign Up</button>
+      <button id="sign-in-btn"type="submit">Sign In</button>
+      <button id="change-password-btn"type="submit" class="hidden">Change Password</button>
+      <button id="sign-out-form" type="submit" class="hidden">Sign Out</button>
+        <form id="sign-up-form" class="hidden">
+              <p>Sign up below</p>
               <input required type="email" name="credentials[email]" placeholder="Enter Email"/>
               <input required name="credentials[password]" type="password" placeholder="Enter Password" />
               <input required name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
               <input type="submit" />
             </form>
-
-            <form id="sign-in-form">
-              <legend>Sign In</legend>
+            <form id="sign-in-form" class="hidden">
+              <p>Sign In
               <input required type="email" name="credentials[email]" placeholder="Enter Email" />
               <input required name="credentials[password]" type="password" placeholder="Enter Password" />
               <input type="submit" />
             </form>
 
             <form id="change-password-form" class="hidden">
-              <legend>Change Password</legend>
               <input required type="password" name="passwords[old]" placeholder="Enter Old Password" />
               <input required type="password" name="passwords[new]" placeholder="Enter New Password" />
               <input type="submit" />
             </form>
-
-            <button id="sign-out-form" type="submit" class="hidden">Sign Out</button>
             <div id="display-message">
             </div>
           </div>

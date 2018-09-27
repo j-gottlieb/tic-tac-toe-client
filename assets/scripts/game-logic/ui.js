@@ -3,21 +3,28 @@ const store = require('../store.js')
 const newGameSuccess = function (response) {
   $('#game-message').html('')
   $('#game-message').text('New Game Has Begun')
-  $('#display-message').css('color', 'green')
-  $('#change-password-form').removeClass('hidden')
-  $('#sign-out-form').removeClass('hidden')
-  $('#sign-in-form').addClass('hidden')
-  $('#sign-up-form').addClass('hidden')
-  store.game = response.user
+  $('#game-message').css('color', 'green')
+  // console.log(response.game.id)
+  store.user.id = response.game.id
+  console.log(store.user.id)
 }
 
 const newGameFailure = function () {
-  $('#game-message').text('Please sign in to play.')
+  $('#game-message').text('Please sign in to play or check your internet connection')
 }
 
 const getStatsSuccess = function (response) {
-  console.log(response.game)
-  $('#stats-display').text(response.game)
+  const userGames = []
+  const game = response.games
+  for (let i = 0; i < response.games.length; i++) {
+    if (game[i].over === true) {
+      userGames.push(game[i])
+    }
+  }
+  $('#stats-display').append(`<p>Hey, ${store.user.email}! Here are the games you've played:</p>`)
+  for (let i = 0; i < userGames.length; i++) {
+    $('#stats-display').append(`Game${i + 1}: id:${userGames[i].id}, moves: ${userGames[i].cells}</p>`)
+  }
 }
 
 module.exports = {

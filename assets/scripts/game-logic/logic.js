@@ -24,12 +24,10 @@ const onNewGame = function () {
     store.cells[i] = ''
   }
   api.newGame()
-    .then(ui.signUpSuccess)
-    .catch(ui.signUpFailure)
-  console.log(store.cells)
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
   xCount = 0
   oCount = 0
-  console.log('xCount is ' + xCount, 'oCount is ' + oCount)
   $('.game-board').removeClass('hidden')
   $('#box0, #box1, #box2, #box3, #box4, #box5, #box6, #box7, #box8').html('')
   $('#box0').on('click', onBox0)
@@ -42,6 +40,10 @@ const onNewGame = function () {
   $('#box7').on('click', onBox7)
   $('#box8').on('click', onBox8)
 }
+
+// const onUpdateGame = function (id, letter, index) {
+//
+// }
 
 // const noPlay = function () {
 //   $('#box0').off('click', onBox0)
@@ -58,7 +60,7 @@ const onNewGame = function () {
 const victory = function () {
   $('#result').removeClass('hidden')
   $('#result').text('VICTORY!')
-  console.log(xCount, oCount)
+  // console.log(xCount, oCount)
   for (let i = 0; i < 9; i++) {
     $(`#box${i}`).off()
   }
@@ -110,15 +112,35 @@ const onBoxClick = function (boxNum) {
         oCount++
       }
     }
-    console.log(xCount, oCount)
+    // console.log(xCount, oCount)
     if (xCount === oCount && store.cells[boxNum] === '') {
       store.cells[boxNum] = 'x'
+      const data = {
+        'cell': {
+          'index': boxNum,
+          'value': 'x'
+        },
+        'over': false
+      }
+      api.updateGame(data)
+        .then(console.log)
+        .catch(console.log)
       $(`#box${boxNum}`).text('x')
     } else if (xCount > oCount && store.cells[boxNum] === '') {
       store.cells[boxNum] = 'o'
       $(`#box${boxNum}`).text('o')
+      const data = {
+        'cell': {
+          'index': boxNum,
+          'value': 'o'
+        },
+        'over': false
+      }
+      api.updateGame(data)
+        .then(console.log)
+        .catch(console.log)
     }
-    console.log(xCount, oCount)
+    // console.log(xCount, oCount)
   }
   victoryCheck()
 }
@@ -144,9 +166,15 @@ const victoryCheck = function () {
     if (xSort.includes(victoryCases[i])) {
       console.log('Victory!')
       victory()
+      api.gameOver()
+        .then(console.log)
+        .catch(console.log)
     } else if (oSort.includes(victoryCases[i])) {
       console.log('Defeat!')
       defeat()
+      api.gameOver()
+        .then(console.log)
+        .catch(console.log)
     }
   }
   // if the game isnt over, but there are still spaces, keep playing, if no spaces
@@ -154,6 +182,9 @@ const victoryCheck = function () {
   if (store.cells.every((i) => { return i !== '' })) {
     console.log('Its a tie!')
     tie()
+    api.gameOver()
+      .then(console.log)
+      .catch(console.log)
   } else {
     console.log('keep playing')
   }

@@ -10,6 +10,16 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure)
 }
 
+const onShowSignUp = function () {
+  $('#sign-up-form').removeClass('hidden')
+  $('#sign-in-form').addClass('hidden')
+}
+
+const onShowSignIn = function () {
+  $('#sign-in-form').removeClass('hidden')
+  $('#sign-up-form').addClass('hidden')
+}
+
 const onSignIn = function (event) {
   event.preventDefault()
   const credentials = getFormFields(event.target)
@@ -37,5 +47,7 @@ module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onShowSignUp,
+  onShowSignIn
 }

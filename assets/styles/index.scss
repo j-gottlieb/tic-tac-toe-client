@@ -4,8 +4,18 @@
   display: none;
 }
 
+h1 {
+  font-family: 'Notable', sans-serif;
+  font-size: 50px;
+  text-align: center;
+}
+
 .box {
   border: 2px solid black;
-  height: 200px;
+  height: 50px;
   width: 50px;
+}
+
+.authentication {
+
 }
