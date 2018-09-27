@@ -45,6 +45,7 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function () {
   // console.log('youre singing out')
+  $('#sign-up-form, #sign-in-form, #change-password-form').trigger('reset')
   $('#display-message').html('You have successfully signed out')
   $('#display-message').css('color', 'green')
   // console.log('where are my buttons?')

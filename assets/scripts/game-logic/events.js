@@ -12,7 +12,7 @@ const onGetStats = function () {
 }
 
 const hideStats = function () {
-  console.log('hiding games index')
+  // console.log('hiding games index')
   $('#hide-stats').addClass('hidden')
   $('#stats-display').addClass('hidden')
 }
