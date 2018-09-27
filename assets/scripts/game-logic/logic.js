@@ -144,14 +144,13 @@ const victoryCheck = function () {
       api.gameOver()
         .then()
         .catch()
+    } else if (xArr.length === 5) {
+    // if (store.cells.every((i) => { return i !== '' }))
+      tie()
+      api.gameOver()
+        .then()
+        .catch()
     }
-  }
-  if (store.cells.every((i) => { return i !== '' })) {
-    tie()
-    api.gameOver()
-      .then()
-      .catch()
-  } else {
   }
 }
 
