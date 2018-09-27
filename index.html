@@ -16,19 +16,22 @@
       <h1>Tic Tac Toe</h1>
       <br>
     <div class="container authentication">
-      <button id="sign-up-btn" type="submit">Sign Up</button>
-      <button id="sign-in-btn"type="submit">Sign In</button>
-      <button id="change-password-btn"type="submit" class="hidden">Change Password</button>
-      <button id="sign-out-form" type="submit" class="hidden">Sign Out</button>
-        <form id="sign-up-form" class="hidden">
-              <p>Sign up below</p>
+      <div class="buttons row align-items-center">
+        <button class="col" id="sign-up-btn" type="submit">Sign Up</button>
+        <button class="col" id="sign-in-btn"type="submit">Sign In</button>
+        <button class="col hidden" id="change-password-btn"type="submit" >Change Password</button>
+        <button class="col hidden" id="sign-out-form" type="submit">Sign Out</button>
+      </div>
+      <div class="row align-items-center">
+        <form id="sign-up-form" class="hidden col">
+              <p>Enter User Information</p>
               <input required type="email" name="credentials[email]" placeholder="Enter Email"/>
               <input required name="credentials[password]" type="password" placeholder="Enter Password" />
               <input required name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
               <input type="submit" />
             </form>
             <form id="sign-in-form" class="hidden">
-              <p>Sign In
+              <p>Enter User Information</p>
               <input required type="email" name="credentials[email]" placeholder="Enter Email" />
               <input required name="credentials[password]" type="password" placeholder="Enter Password" />
               <input type="submit" />
@@ -42,14 +45,14 @@
             <div id="display-message">
             </div>
           </div>
+        </div>
           <div class="container game-stats hidden">
             <button id="get-stats" type="submit">Get All Game Stats</button>
             <div id="stats-display"></div>
           </div>
-          <div id="result" class="hidden"></div>
-    <h2>Game Board will go here</h2>
-    <button id="new-game" type="submit">New Game</button>
-      <div id="game-message"></div>
+    <button id="new-game" class="hidden" type="submit">New Game</button>
+    <div id="game-message"></div>
+    <div id="result" class="hidden"></div>
     <div class="container game-board hidden">
       <div class="row top-row">
         <div id="box0" class="col-md-4 box">1</div>
@@ -66,6 +69,8 @@
         <div id="box7" class="col-md-4 box">8</div>
         <div id="box8" class="col-md-4 box">9</div>
       </div>
+    </div>
+    <div class="picture">
     </div>
       </body>
 </html>

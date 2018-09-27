@@ -41,25 +41,10 @@ const onNewGame = function () {
   $('#box8').on('click', onBox8)
 }
 
-// const onUpdateGame = function (id, letter, index) {
-//
-// }
-
-// const noPlay = function () {
-//   $('#box0').off('click', onBox0)
-//   $('#box1').off('click', onBox1)
-//   $('#box2').off('click', onBox2)
-//   $('#box3').off('click', onBox3)
-//   $('#box4').off('click', onBox4)
-//   $('#box5').off('click', onBox5)
-//   $('#box6').off('click', onBox6)
-//   $('#box7').off('click', onBox7)
-//   $('#box8').off('click', onBox8)
-// }
-
 const victory = function () {
   $('#result').removeClass('hidden')
   $('#result').text('VICTORY!')
+  $('#game-message').addClass('hidden')
   // console.log(xCount, oCount)
   for (let i = 0; i < 9; i++) {
     $(`#box${i}`).off()
@@ -70,6 +55,7 @@ const victory = function () {
 const defeat = function () {
   $('#result').removeClass('hidden')
   $('#result').text('DEFEAT!')
+  $('#game-message').addClass('hidden')
   for (let i = 0; i < 9; i++) {
     $(`#box${i}`).off()
   }
@@ -79,6 +65,7 @@ const defeat = function () {
 const tie = function () {
   $('#result').removeClass('hidden')
   $('#result').text('ITS A TIE!')
+  $('#game-message').addClass('hidden')
   // noPlay()
 }
 //

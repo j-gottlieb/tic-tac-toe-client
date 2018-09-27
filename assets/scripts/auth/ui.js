@@ -5,6 +5,7 @@ const signUpSuccess = function (response) {
   $('#sign-up-form').trigger('reset')
   $('#display-message').append(`<p>Success! </p>`)
   $('#display-message').css('color', 'green')
+  $('#sign-up-btn, #sign-up-form').addClass('hidden')
 }
 
 const signUpFailure = function () {
@@ -16,14 +17,11 @@ const signUpFailure = function () {
 const signInSuccess = function (response) {
   $('#display-message').html('')
   $('#sign-in-form').trigger('reset')
-  $('#display-message').append(`<p>Success! </p>`)
   $('#display-message').css('color', 'green')
-  $('#change-password-form').removeClass('hidden')
-  $('#sign-out-form').removeClass('hidden')
-  $('.game-stats').removeClass('hidden')
-  $('#sign-in-form').addClass('hidden')
-  $('#sign-up-form').addClass('hidden')
+  $('#sign-out-form,.game-stats,#change-password-btn,#new-game').removeClass('hidden')
+  $('#sign-in-btn,#sign-up-btn,#sign-in-form').addClass('hidden')
   store.user = response.user
+  $('#display-message').append(`<p>Welcome, ${store.user.email} </p>`)
 }
 
 const signInFailure = function () {

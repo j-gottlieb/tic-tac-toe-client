@@ -6,11 +6,11 @@ const newGameSuccess = function (response) {
   $('#game-message').css('color', 'green')
   // console.log(response.game.id)
   store.user.id = response.game.id
-  console.log(store.user.id)
 }
 
 const newGameFailure = function () {
-  $('#game-message').text('Please sign in to play or check your internet connection')
+  alert('new game button clicked')
+  $('#game-message').text('New Game Has Begun')
 }
 
 const getStatsSuccess = function (response) {
@@ -21,6 +21,7 @@ const getStatsSuccess = function (response) {
       userGames.push(game[i])
     }
   }
+  $('#stats-display').html('')
   $('#stats-display').append(`<p>Hey, ${store.user.email}! Here are the games you've played:</p>`)
   for (let i = 0; i < userGames.length; i++) {
     $('#stats-display').append(`Game${i + 1}: id:${userGames[i].id}, moves: ${userGames[i].cells}</p>`)
