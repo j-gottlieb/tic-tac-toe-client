@@ -22,5 +22,7 @@ $(() => {
   $('#sign-in-btn').on('click', authEvents.onShowSignIn)
   $('#change-password-btn').on('click', authEvents.onShowChangePassword)
   $('#hide-stats').on('click', gameEvents.hideStats)
-  $('#sign-up-form').on('blur', authEvents.hideForms)
+  // $('#sign-up-form').on('blur', authEvents.hideForms)
+  $('#get-stats').on('click', gameLogic.onResume)
+  $('#resume-game').on('click', gameLogic.resumeGame)
 })

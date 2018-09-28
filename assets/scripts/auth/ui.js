@@ -37,6 +37,7 @@ const changePasswordSuccess = function (response) {
   $('#change-password-form').trigger('reset')
   $('#display-message').text(`Successfully changed password!`).fadeToggle().delay(1000).fadeToggle()
   $('#display-message').css('color', 'green')
+  $('#change-password-form').addClass('hidden')
 }
 
 const changePasswordFailure = function () {

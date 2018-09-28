@@ -11,11 +11,13 @@ const onSignUp = function (event) {
 }
 
 const onShowSignUp = function () {
+  $('#sign-up-form').trigger('reset')
   $('#sign-up-form').removeClass('hidden')
   $('#sign-in-form').addClass('hidden')
 }
 
 const onShowSignIn = function () {
+  $('#sign-in-form').trigger('reset')
   $('#sign-in-form').removeClass('hidden')
   $('#sign-up-form').addClass('hidden')
 }

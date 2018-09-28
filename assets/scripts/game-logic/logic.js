@@ -17,7 +17,24 @@ const emptyGame = ['', '', '', '', '', '', '', '', '']
 let xCount
 let oCount
 
+const onResume = function () {
+  if (store.cells.every(i => i !== null)) {
+    $('#resume-game').removeClass('hidden')
+  }
+}
+
+const resumeGame = function () {
+  $('#get-stats').text('Get Game Stats')
+  $('#hide-stats').addClass('hidden')
+  $('#stats-display').addClass('hidden')
+  $('.game-board').removeClass('hidden')
+}
+
 const onNewGame = function () {
+  $('#get-stats').text('Get Game Stats')
+  $('#hide-stats').addClass('hidden')
+  $('#display-message').text(`It is X's Turn`).fadeIn()
+  $('#stats-display').addClass('hidden')
   $('.top-row, .middle-row, .bottom-row').off()
   $('.result').removeClass('hidden')
   $('.result').css('color', 'black')
@@ -46,6 +63,7 @@ const onNewGame = function () {
 }
 
 const victory = function () {
+  $('#display-message').fadeOut()
   $('.result').css('visibility', 'visible')
   $('.result').text('VICTORY!')
   // $('#game-message').addClass('hidden')
@@ -68,6 +86,7 @@ const victory = function () {
 }
 
 const defeat = function () {
+  $('#display-message').fadeOut()
   $('.result').css('visibility', 'visible')
   $('.result').text('DEFEAT!')
   $('.result').css('color', 'red')
@@ -88,6 +107,7 @@ const defeat = function () {
 }
 
 const tie = function () {
+  $('#display-message').fadeOut()
   $('.result').css('visibility', 'visible')
   $('.result').text('Its a TIE!')
   // $('.result').addClass('hidden')
@@ -120,6 +140,7 @@ const onBoxClick = function (boxNum) {
     // console.log(xCount, oCount)
     if (xCount === oCount && store.cells[boxNum] === '') {
       $('.result').css('visibility', 'hidden')
+      $('#display-message').text(`It is O's turn`)
       store.cells[boxNum] = 'x'
       const data = {
         'cell': {
@@ -134,6 +155,7 @@ const onBoxClick = function (boxNum) {
       $(`#box${boxNum}`).text('x')
     } else if (xCount > oCount && store.cells[boxNum] === '') {
       $('.result').css('visibility', 'hidden')
+      $('#display-message').text(`It is X's turn`)
       store.cells[boxNum] = 'o'
       $(`#box${boxNum}`).text('o')
       const data = {
@@ -287,5 +309,7 @@ const onBox8 = function () {
 
 module.exports = {
   onBoxClick,
-  onNewGame
+  onNewGame,
+  onResume,
+  resumeGame
 }
