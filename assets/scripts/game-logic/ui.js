@@ -13,6 +13,13 @@ const newGameFailure = function () {
   $('#game-message').text('New Game Has Begun')
 }
 
+const gameOverSuccess = function () {
+  console.log('Game Over')
+  $('.top-row').on('click', function () {
+    console.log('game over function running')
+  })
+}
+
 const getStatsSuccess = function (response) {
   const userGames = []
   const game = response.games
@@ -36,5 +43,6 @@ const getStatsSuccess = function (response) {
 module.exports = {
   newGameSuccess,
   newGameFailure,
-  getStatsSuccess
+  getStatsSuccess,
+  gameOverSuccess
 }

@@ -37,6 +37,10 @@ h1 {
   font-size: 80px;
   text-align: center;
   justify-content: center;
+
+  &:hover {
+    background-color: #e8decc;
+  }
 }
 
 // .pic-container {
@@ -53,6 +57,6 @@ h1 {
 
 .game-message, .result {
   font-family: 'Permanent Marker', cursive;
-  font-size: 70px;
+  font-size: 30px;
   text-align: center;
 }
