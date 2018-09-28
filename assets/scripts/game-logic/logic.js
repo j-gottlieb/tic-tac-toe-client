@@ -31,6 +31,9 @@ const resumeGame = function () {
 }
 
 const onNewGame = function () {
+  for (let i = 0; i < 9; i++) {
+    $(`#box${i}`).css('background-color', '#fff6e5')
+  }
   $('#get-stats').text('Get Game Stats')
   $('#hide-stats').addClass('hidden')
   $('#display-message').text(`It is X's Turn`).fadeIn()
@@ -169,7 +172,7 @@ const onBoxClick = function (boxNum) {
         .then()
         .catch()
     } else if (store.cells[boxNum] !== '') {
-      $('.result').removeClass('hidden')
+      $('.result').css('visibility', 'visible')
       $('.result').text("You can't click there!")
       $('.result').css('color', 'red')
       $('.result').css('font-size', '30px')
@@ -205,38 +208,57 @@ const victoryCheck2 = function () {
   }
   if (cells[0] === 'x' && cells[0] === cells[3] && cells[0] === cells[6]) {
     victory()
+    $('#box0, #box3, #box6').css('background-color', '#77e25f')
   } else if (cells[1] === 'x' && cells[1] === cells[4] && cells[1] === cells[7]) {
     victory()
+    $('#box1, #box4, #box7').css('background-color', '#77e25f')
   } else if (cells[2] === 'x' && cells[2] === cells[5] && cells[2] === cells[8]) {
     victory()
+    $('#box2, #box5, #box8').css('background-color', '#77e25f')
   } else if (cells[0] === 'x' && cells[0] === cells[1] && cells[0] === cells[2]) {
     victory()
+    $('#box0, #box1, #box2').css('background-color', '#77e25f')
   } else if (cells[3] === 'x' && cells[3] === cells[4] && cells[3] === cells[5]) {
     victory()
+    $('#box3, #box4, #box5').css('background-color', '#77e25f')
   } else if (cells[6] === 'x' && cells[6] === cells[7] && cells[6] === cells[8]) {
     victory()
+    $('#box6, #box7, #box7').css('background-color', '#77e25f')
   } else if (cells[0] === 'x' && cells[0] === cells[4] && cells[0] === cells[8]) {
     victory()
+    $('#box0, #box4, #box8').css('background-color', '#77e25f')
   } else if (cells[2] === 'x' && cells[2] === cells[4] && cells[2] === cells[6]) {
     victory()
+    $('#box2, #box4, #box6').css('background-color', '#77e25f')
   } else if (cells[0] === 'o' && cells[0] === cells[3] && cells[0] === cells[6]) {
     defeat()
+    $('#box0, #box3, #box6').css('background-color', '#ea4646')
   } else if (cells[1] === 'o' && cells[1] === cells[4] && cells[1] === cells[7]) {
     defeat()
+    $('#box1, #box4, #box7').css('background-color', '#ea4646')
   } else if (cells[2] === 'o' && cells[2] === cells[5] && cells[2] === cells[8]) {
     defeat()
+    $('#box2, #box5, #box8').css('background-color', '#ea4646')
   } else if (cells[0] === 'o' && cells[0] === cells[1] && cells[0] === cells[2]) {
     defeat()
+    $('#box0, #box1, #box1').css('background-color', '#ea4646')
   } else if (cells[3] === 'o' && cells[3] === cells[4] && cells[3] === cells[5]) {
     defeat()
+    $('#box3, #box4, #box5').css('background-color', '#ea4646')
   } else if (cells[6] === 'o' && cells[6] === cells[7] && cells[6] === cells[8]) {
     defeat()
+    $('#box6, #box7, #box7').css('background-color', '#ea4646')
   } else if (cells[0] === 'o' && cells[0] === cells[4] && cells[0] === cells[8]) {
     defeat()
+    $('#box0, #box4, #box8').css('background-color', '#ea4646')
   } else if (cells[2] === 'o' && cells[2] === cells[4] && cells[2] === cells[6]) {
     defeat()
+    $('#box2, #box4, #box6').css('background-color', '#ea4646')
   } else if (xArr.length === 5) {
     tie()
+    for (let i = 0; i < 9; i++) {
+      $(`#box${i}`).css('background-color', '#4677ea')
+    }
   }
 }
 
