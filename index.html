@@ -24,20 +24,20 @@
         <button class="col hidden" id="sign-out-form" type="submit">Sign Out</button>
       </div>
       <div class="row align-items-center forms">
-        <form id="sign-up-form" class="hidden col">
+        <form id="sign-up-form" class="hidden col single-form">
               <p>Enter User Information</p>
               <input required type="email" name="credentials[email]" placeholder="Enter Email"/>
               <input required name="credentials[password]" type="password" placeholder="Enter Password" />
               <input required name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
               <input type="submit" />
             </form>
-            <form id="sign-in-form" class="hidden">
+            <form id="sign-in-form" class="hidden single-form">
               <p>Enter User Information</p>
               <input required type="email" name="credentials[email]" placeholder="Enter Email" />
               <input required name="credentials[password]" type="password" placeholder="Enter Password" />
               <input type="submit" />
             </form>
-            <form id="change-password-form" class="hidden">
+            <form id="change-password-form" class="hidden single-form">
               <input required type="password" name="passwords[old]" placeholder="Enter Old Password" />
               <input required type="password" name="passwords[new]" placeholder="Enter New Password" />
               <input type="submit" />

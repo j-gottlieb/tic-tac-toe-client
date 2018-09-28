@@ -53,14 +53,13 @@ const signOutSuccess = function () {
   $('#display-message').removeClass('hidden')
   $('#display-message').text(`You have successfully signed out`).fadeToggle().delay(1000).fadeToggle()
   $('#display-message').css('color', 'green')
-  // console.log('where are my buttons?')
   $('#sign-out-form, #stats-display, .result, .game-board, #change-password-btn, #change-password-form, #new-game, .game-buttons').addClass('hidden')
   $('#sign-in-btn, #sign-up-btn, .pic-container').removeClass('hidden')
-  // console.log('where are my buttons?')
 }
 
 const signOutFailure = function () {
-  // $('#display-message').html("You aren't signed in!")
+  // $('#display-message').removeClass('hidden')
+  // $('#display-message').html('Something went wrong')
   // $('#display-message').css('color', 'red')
 }
 

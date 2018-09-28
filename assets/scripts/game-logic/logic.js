@@ -184,10 +184,10 @@ const onBoxClick = function (boxNum) {
 }
 
 const tieCheck = function (xArr) {
-  console.log('tie is working')
-  console.log(xArr)
+  // console.log('tie is working')
+  // console.log(xArr)
   if (xArr.length === 5) {
-    console.log('this should be a tie')
+    // console.log('this should be a tie')
     tie()
     api.gameOver()
       .then()
@@ -282,8 +282,8 @@ const victoryCheck = function () {
     })) {
       victory()
       api.gameOver()
-        .then(console.log)
-        .catch(console.log)
+        .then()
+        .catch()
     } else if (victoryCases[i].every(function (num) {
       return (oArr.indexOf(num) >= 0)
     })) {

@@ -38,11 +38,11 @@ h1 {
   width: 400px;
   margin-left: auto;
   margin-right: auto;
-  background-color: #fff6e5;
 }
 
 .box {
   border: 2px solid #000;
+  margin: -1px;
   display: inline-block;
   height: 133px;
   width: 133px;
@@ -50,6 +50,7 @@ h1 {
   font-size: 80px;
   text-align: center;
   justify-content: center;
+  background-color: #fff6e5;
 
   &:hover {
     background-color: #e8decc;

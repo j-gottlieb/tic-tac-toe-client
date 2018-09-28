@@ -19,7 +19,8 @@ const updateGame = function (cells) {
       Authorization: `Token token=${store.user.token}`
     },
     data: {
-      'game': cells
+      'game': cells,
+      'over': false
     }
   })
 }
