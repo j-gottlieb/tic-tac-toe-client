@@ -46,7 +46,7 @@ const onNewGame = function () {
 }
 
 const victory = function () {
-  $('.result').removeClass('hidden')
+  $('.result').css('visibility', 'visible')
   $('.result').text('VICTORY!')
   // $('#game-message').addClass('hidden')
   $('.result').css('color', 'green')
@@ -68,7 +68,7 @@ const victory = function () {
 }
 
 const defeat = function () {
-  $('.result').removeClass('hidden')
+  $('.result').css('visibility', 'visible')
   $('.result').text('DEFEAT!')
   $('.result').css('color', 'red')
   for (let i = 0; i < 9; i++) {
@@ -88,9 +88,9 @@ const defeat = function () {
 }
 
 const tie = function () {
-  $('.result').removeClass('hidden')
+  $('.result').css('visibility', 'visible')
   $('.result').text('Its a TIE!')
-  $('.result').addClass('hidden')
+  // $('.result').addClass('hidden')
   $('.result').css('color', 'blue')
   let clicks = 0
   $('.top-row, .middle-row, .bottom-row').on('click', function () {
@@ -119,7 +119,7 @@ const onBoxClick = function (boxNum) {
     }
     // console.log(xCount, oCount)
     if (xCount === oCount && store.cells[boxNum] === '') {
-      $('.result').addClass('hidden')
+      $('.result').css('visibility', 'hidden')
       store.cells[boxNum] = 'x'
       const data = {
         'cell': {
@@ -133,7 +133,7 @@ const onBoxClick = function (boxNum) {
         .catch()
       $(`#box${boxNum}`).text('x')
     } else if (xCount > oCount && store.cells[boxNum] === '') {
-      $('.result').addClass('hidden')
+      $('.result').css('visibility', 'hidden')
       store.cells[boxNum] = 'o'
       $(`#box${boxNum}`).text('o')
       const data = {

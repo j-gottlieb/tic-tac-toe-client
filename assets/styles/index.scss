@@ -6,23 +6,28 @@
   display: none;
 }
 
+.forms {
+  min-height: 100px;
+}
+
 h1 {
   font-family: 'Permanent Marker', cursive;
+  margin-bottom: 0px;
   font-size: 50px;
   text-align: center;
 }
 
 .game-board {
-  min-height: 500px;
-  min-width: 500px;
-  margin: 40px auto auto;
+  min-height: 400px;
+  min-width: 400px;
+  margin: auto;
   text-align: center;
 }
 
 .top-row,
 .middle-row,
 .bottom-row {
-  width: 450px;
+  width: 400px;
   margin-left: auto;
   margin-right: auto;
   background-color: #fff6e5;
@@ -31,8 +36,8 @@ h1 {
 .box {
   border: 2px solid #000;
   display: inline-block;
-  height: 150px;
-  width: 150px;
+  height: 133px;
+  width: 133px;
   font-family: 'Permanent Marker', cursive;
   font-size: 80px;
   text-align: center;
@@ -51,12 +56,23 @@ h1 {
 .picture {
   display: block;
   margin: 40px auto auto;
-  max-height: auto;
-  max-width: 50%;
+  height: 400px;
+  width: 400px;
+  // max-height: auto;
+  // max-width: 50%;
 }
 
 .game-message, .result {
   font-family: 'Permanent Marker', cursive;
   font-size: 30px;
   text-align: center;
+}
+
+.stats-display {
+  height: 450px;
+  overflow: scroll;
+  width: 500px;
+  margin: auto auto;
+  margin-top: 20px;
+  border: 2px solid black
 }
