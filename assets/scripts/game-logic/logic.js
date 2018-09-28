@@ -28,6 +28,7 @@ const resumeGame = function () {
   $('#hide-stats').addClass('hidden')
   $('#stats-display, .pic-container').addClass('hidden')
   $('.game-board').removeClass('hidden')
+  $('#resume-game').addClass('hidden')
 }
 
 const onNewGame = function () {
