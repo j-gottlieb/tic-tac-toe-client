@@ -26,7 +26,7 @@ const onResume = function () {
 const resumeGame = function () {
   $('#get-stats').text('Get Game Stats')
   $('#hide-stats').addClass('hidden')
-  $('#stats-display').addClass('hidden')
+  $('#stats-display, .pic-container').addClass('hidden')
   $('.game-board').removeClass('hidden')
 }
 

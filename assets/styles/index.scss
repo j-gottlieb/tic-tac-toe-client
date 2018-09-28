@@ -15,6 +15,8 @@ h1 {
   margin-bottom: 0px;
   font-size: 50px;
   text-align: center;
+  background-color: #d8d8d8;
+  border: 2px solid black;
 }
 
 .message-block {
@@ -54,10 +56,9 @@ h1 {
   }
 }
 
-// .pic-container {
-//   // height: 500px;
-//   // margin: auto;
-// }
+.game-buttons {
+  margin: auto;
+}
 
 .picture {
   display: block;
@@ -81,4 +82,47 @@ h1 {
   margin: auto auto;
   margin-top: 20px;
   border: 2px solid black
+}
+
+footer {
+  margin-top: 20px;
+  margin-right: 10px;
+  text-align: right;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .game-board {
+    min-height: 200px;
+    min-width: 200px;
+  }
+  .stats-display {
+    height: 275px;
+    width: 275px;
+  }
+  .picture {
+    height: 200px;
+    width: 200px;
+  }
+  .box {
+    height: 66px;
+    width: 66px;
+    font-size: 40px;
+  }
+  .top-row,
+  .middle-row,
+  .bottom-row {
+    width: 200px;
+  }
+  footer {
+    margin-top: 20px;
+    text-align: center;
+  }
+  button {
+    border: 1px solid black;
+    font-size: 12px;
+    height: 55px;
+    }
+    input {
+      border: 1px solid black;
+    }
 }
