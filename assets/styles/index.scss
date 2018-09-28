@@ -7,7 +7,7 @@
 }
 
 .forms {
-  min-height: 100px;
+  min-height: 80px;
 }
 
 h1 {
@@ -15,6 +15,12 @@ h1 {
   margin-bottom: 0px;
   font-size: 50px;
   text-align: center;
+}
+
+.message-block {
+  display: inline-block;
+  height: 60px;
+  margin: auto;
 }
 
 .game-board {
@@ -55,7 +61,7 @@ h1 {
 
 .picture {
   display: block;
-  margin: 40px auto auto;
+  margin: auto;
   height: 400px;
   width: 400px;
   // max-height: auto;
