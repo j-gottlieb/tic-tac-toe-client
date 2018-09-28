@@ -18,8 +18,11 @@ let xCount
 let oCount
 
 const onNewGame = function () {
-  $('#game-message').removeClass('hidden')
-  $('#result, .pic-container').addClass('hidden')
+  $('.top-row, .middle-row, .bottom-row').off()
+  $('.result').removeClass('hidden')
+  $('.result').css('color', 'black')
+  $('.result').text('A new game has begun')
+  $('.pic-container').addClass('hidden')
   store.cells = emptyGame
   for (let i = 0; i < store.cells.length; i++) {
     store.cells[i] = ''
@@ -43,31 +46,63 @@ const onNewGame = function () {
 }
 
 const victory = function () {
-  $('#result').removeClass('hidden')
+  $('.result').css('visibility', 'visible')
   $('.result').text('VICTORY!')
-  $('#game-message').addClass('hidden')
+  // $('#game-message').addClass('hidden')
   $('.result').css('color', 'green')
   // console.log(xCount, oCount)
   for (let i = 0; i < 9; i++) {
     $(`#box${i}`).off()
   }
+  let clicks = 0
+  $('.top-row, .middle-row, .bottom-row').on('click', function () {
+    if (clicks > 0) {
+      $('.result').css('color', 'black')
+      $('.result').text('Please start a new game to continue')
+    }
+    ++clicks
+  })
+  api.gameOver()
+    .then()
+    .catch()
 }
 
 const defeat = function () {
-  $('#result').removeClass('hidden')
+  $('.result').css('visibility', 'visible')
   $('.result').text('DEFEAT!')
-  $('#game-message').addClass('hidden')
   $('.result').css('color', 'red')
   for (let i = 0; i < 9; i++) {
     $(`#box${i}`).off()
   }
+  let clicks = 0
+  $('.top-row, .middle-row, .bottom-row').on('click', function () {
+    if (clicks > 0) {
+      $('.result').css('color', 'black')
+      $('.result').text('Please start a new game to continue')
+    }
+    ++clicks
+  })
+  api.gameOver()
+    .then()
+    .catch()
 }
 
 const tie = function () {
-  $('#result').removeClass('hidden')
+  $('.result').css('visibility', 'visible')
   $('.result').text('Its a TIE!')
-  $('#game-message').addClass('hidden')
+  // $('.result').addClass('hidden')
   $('.result').css('color', 'blue')
+  let clicks = 0
+  $('.top-row, .middle-row, .bottom-row').on('click', function () {
+    if (clicks > 0) {
+      $('.result').css('color', 'black')
+      $('.result').text('Please start a new game to continue')
+    }
+    ++clicks
+  })
+  api.gameOver()
+    .then()
+    .catch()
 }
 
 const onBoxClick = function (boxNum) {
@@ -84,6 +119,7 @@ const onBoxClick = function (boxNum) {
     }
     // console.log(xCount, oCount)
     if (xCount === oCount && store.cells[boxNum] === '') {
+      $('.result').css('visibility', 'hidden')
       store.cells[boxNum] = 'x'
       const data = {
         'cell': {
@@ -97,6 +133,7 @@ const onBoxClick = function (boxNum) {
         .catch()
       $(`#box${boxNum}`).text('x')
     } else if (xCount > oCount && store.cells[boxNum] === '') {
+      $('.result').css('visibility', 'hidden')
       store.cells[boxNum] = 'o'
       $(`#box${boxNum}`).text('o')
       const data = {
@@ -109,10 +146,76 @@ const onBoxClick = function (boxNum) {
       api.updateGame(data)
         .then()
         .catch()
+    } else if (store.cells[boxNum] !== '') {
+      $('.result').removeClass('hidden')
+      $('.result').text("You can't click there!")
+      $('.result').css('color', 'red')
+      $('.result').css('font-size', '30px')
     }
     // console.log(xCount, oCount)
   }
-  victoryCheck()
+  victoryCheck2()
+}
+
+const tieCheck = function (xArr) {
+  console.log('tie is working')
+  console.log(xArr)
+  if (xArr.length === 5) {
+    console.log('this should be a tie')
+    tie()
+    api.gameOver()
+      .then()
+      .catch()
+  }
+}
+
+const victoryCheck2 = function () {
+  const cells = store.cells
+  const xArr = []
+  const oArr = []
+  // push coordinate to its corresponding array
+  for (let i = 0; i < cells.length; i++) {
+    if (cells[i] === 'x') {
+      xArr.push(i)
+    } else if (store.cells[i] === 'o') {
+      oArr.push(i)
+    }
+  }
+  if (cells[0] === 'x' && cells[0] === cells[3] && cells[0] === cells[6]) {
+    victory()
+  } else if (cells[1] === 'x' && cells[1] === cells[4] && cells[1] === cells[7]) {
+    victory()
+  } else if (cells[2] === 'x' && cells[2] === cells[5] && cells[2] === cells[8]) {
+    victory()
+  } else if (cells[0] === 'x' && cells[0] === cells[1] && cells[0] === cells[2]) {
+    victory()
+  } else if (cells[3] === 'x' && cells[3] === cells[4] && cells[3] === cells[5]) {
+    victory()
+  } else if (cells[6] === 'x' && cells[6] === cells[7] && cells[6] === cells[8]) {
+    victory()
+  } else if (cells[0] === 'x' && cells[0] === cells[4] && cells[0] === cells[8]) {
+    victory()
+  } else if (cells[2] === 'x' && cells[2] === cells[4] && cells[2] === cells[6]) {
+    victory()
+  } else if (cells[0] === 'o' && cells[0] === cells[3] && cells[0] === cells[6]) {
+    defeat()
+  } else if (cells[1] === 'o' && cells[1] === cells[4] && cells[1] === cells[7]) {
+    defeat()
+  } else if (cells[2] === 'o' && cells[2] === cells[5] && cells[2] === cells[8]) {
+    defeat()
+  } else if (cells[0] === 'o' && cells[0] === cells[1] && cells[0] === cells[2]) {
+    defeat()
+  } else if (cells[3] === 'o' && cells[3] === cells[4] && cells[3] === cells[5]) {
+    defeat()
+  } else if (cells[6] === 'o' && cells[6] === cells[7] && cells[6] === cells[8]) {
+    defeat()
+  } else if (cells[0] === 'o' && cells[0] === cells[4] && cells[0] === cells[8]) {
+    defeat()
+  } else if (cells[2] === 'o' && cells[2] === cells[4] && cells[2] === cells[6]) {
+    defeat()
+  } else if (xArr.length === 5) {
+    tie()
+  }
 }
 
 const victoryCheck = function () {
@@ -139,17 +242,15 @@ const victoryCheck = function () {
     } else if (victoryCases[i].every(function (num) {
       return (oArr.indexOf(num) >= 0)
     })) {
-      // console.log('Defeat!')
       defeat()
       api.gameOver()
         .then()
         .catch()
-    } else if (xArr.length === 5) {
-    // if (store.cells.every((i) => { return i !== '' }))
-      tie()
-      api.gameOver()
-        .then()
-        .catch()
+    } else if (xArr.length === 5 && !(victoryCases[i].every(function (num) {
+      return (xArr.indexOf(num) >= 0)
+    }))
+    ) {
+      tieCheck(xArr)
     }
   }
 }

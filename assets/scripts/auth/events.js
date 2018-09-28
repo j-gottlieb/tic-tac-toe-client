@@ -47,6 +47,10 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+const hideForms = function () {
+  $('#sign-up-form').css('visibility', 'hidden')
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -54,5 +58,6 @@ module.exports = {
   onSignOut,
   onShowSignUp,
   onShowSignIn,
-  onShowChangePassword
+  onShowChangePassword,
+  hideForms
 }

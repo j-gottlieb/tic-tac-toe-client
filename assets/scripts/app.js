@@ -22,4 +22,5 @@ $(() => {
   $('#sign-in-btn').on('click', authEvents.onShowSignIn)
   $('#change-password-btn').on('click', authEvents.onShowChangePassword)
   $('#hide-stats').on('click', gameEvents.hideStats)
+  $('#sign-up-form').on('blur', authEvents.hideForms)
 })
