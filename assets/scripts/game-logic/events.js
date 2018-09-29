@@ -16,7 +16,7 @@ const onGetStats = function () {
 }
 
 const hideStats = function () {
-  $('#display-message').fadeIn()
+  // $('#display-message').fadeIn()
   $('.pic-container').removeClass('hidden')
   $('#get-stats').text('Get Game Stats')
   // console.log('hiding games index')

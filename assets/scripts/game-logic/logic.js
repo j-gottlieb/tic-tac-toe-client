@@ -37,7 +37,7 @@ const onNewGame = function () {
   }
   $('#get-stats').text('Get Game Stats')
   $('#hide-stats').addClass('hidden')
-  $('#display-message').text(`It is X's Turn`).fadeIn()
+  $('#display-message').text(`It is X's Turn. You're X.`).fadeIn()
   $('#stats-display').addClass('hidden')
   $('.top-row, .middle-row, .bottom-row').off()
   $('.result').removeClass('hidden')
@@ -141,10 +141,9 @@ const onBoxClick = function (boxNum) {
         oCount++
       }
     }
-    // console.log(xCount, oCount)
     if (xCount === oCount && store.cells[boxNum] === '') {
       $('.result').css('visibility', 'hidden')
-      $('#display-message').text(`It is O's turn`)
+      $('#display-message').text(`It is O's turn. You're also O.`)
       store.cells[boxNum] = 'x'
       const data = {
         'cell': {
@@ -159,7 +158,7 @@ const onBoxClick = function (boxNum) {
       $(`#box${boxNum}`).text('x')
     } else if (xCount > oCount && store.cells[boxNum] === '') {
       $('.result').css('visibility', 'hidden')
-      $('#display-message').text(`It is X's turn`)
+      $('#display-message').text(`It is X's turn. You're X.`)
       store.cells[boxNum] = 'o'
       $(`#box${boxNum}`).text('o')
       const data = {
@@ -181,18 +180,6 @@ const onBoxClick = function (boxNum) {
     // console.log(xCount, oCount)
   }
   victoryCheck2()
-}
-
-const tieCheck = function (xArr) {
-  // console.log('tie is working')
-  // console.log(xArr)
-  if (xArr.length === 5) {
-    // console.log('this should be a tie')
-    tie()
-    api.gameOver()
-      .then()
-      .catch()
-  }
 }
 
 const victoryCheck2 = function () {
@@ -259,43 +246,6 @@ const victoryCheck2 = function () {
     tie()
     for (let i = 0; i < 9; i++) {
       $(`#box${i}`).css('background-color', '#4677ea')
-    }
-  }
-}
-
-const victoryCheck = function () {
-  // victory contains all victory cases
-  const victoryCases = [[0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 4, 8], [2, 4, 6]]
-  const xArr = []
-  const oArr = []
-  // push coordinate to its corresponding array
-  for (let i = 0; i < store.cells.length; i++) {
-    if (store.cells[i] === 'x') {
-      xArr.push(i)
-    } else if (store.cells[i] === 'o') {
-      oArr.push(i)
-    }
-  }
-  for (let i = 0; i < victoryCases.length; i++) {
-    if (victoryCases[i].every(function (num) {
-      return (xArr.indexOf(num) >= 0)
-    })) {
-      victory()
-      api.gameOver()
-        .then()
-        .catch()
-    } else if (victoryCases[i].every(function (num) {
-      return (oArr.indexOf(num) >= 0)
-    })) {
-      defeat()
-      api.gameOver()
-        .then()
-        .catch()
-    } else if (xArr.length === 5 && !(victoryCases[i].every(function (num) {
-      return (xArr.indexOf(num) >= 0)
-    }))
-    ) {
-      tieCheck(xArr)
     }
   }
 }

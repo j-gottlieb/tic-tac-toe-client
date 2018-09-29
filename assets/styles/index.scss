@@ -10,9 +10,14 @@
   min-height: 80px;
 }
 
+container {
+  height: 100%;
+}
+
 h1 {
   font-family: 'Permanent Marker', cursive;
-  margin-bottom: 0px;
+  margin-bottom: 5px;
+  margin-top: 4px;
   font-size: 50px;
   text-align: center;
   background-color: #d8d8d8;
@@ -20,9 +25,13 @@ h1 {
 }
 
 .message-block {
-  display: inline-block;
-  height: 60px;
+  display: block;
+  height: 25px;
   margin: auto;
+}
+
+.display-message {
+  background-color: #d7ffd1;
 }
 
 .game-board {
@@ -77,7 +86,7 @@ h1 {
 }
 
 .stats-display {
-  height: 450px;
+  height: 100px;
   overflow: scroll;
   width: 500px;
   margin: auto auto;
@@ -86,9 +95,12 @@ h1 {
 }
 
 footer {
+  display: absolute;
+  bottom: 0;
   margin-top: 20px;
   margin-right: 10px;
   text-align: right;
+  height: 25px;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
