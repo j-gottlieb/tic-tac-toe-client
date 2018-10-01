@@ -51,6 +51,7 @@ const changePasswordFailure = function () {
 
 const signOutSuccess = function () {
   $('#display-message').html('').hide()
+  $('#get-stats').text('Get Game Stats')
   $('#sign-up-form, #sign-in-form, #change-password-form').trigger('reset')
   $('#display-message').removeClass('hidden')
   $('#display-message').text(`You have successfully signed out`).fadeToggle().delay(1000).fadeToggle()
