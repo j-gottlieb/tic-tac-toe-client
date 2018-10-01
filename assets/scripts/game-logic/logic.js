@@ -29,6 +29,7 @@ const resumeGame = function () {
   $('#stats-display, .pic-container').addClass('hidden')
   $('.game-board').removeClass('hidden')
   $('#resume-game').addClass('hidden')
+  $('#display-message').fadeIn()
 }
 
 const onNewGame = function () {
@@ -116,6 +117,9 @@ const tie = function () {
   $('.result').text('Its a TIE!')
   // $('.result').addClass('hidden')
   $('.result').css('color', 'blue')
+  for (let i = 0; i < 9; i++) {
+    $(`#box${i}`).off()
+  }
   let clicks = 0
   $('.top-row, .middle-row, .bottom-row').on('click', function () {
     if (clicks > 0) {
@@ -130,6 +134,7 @@ const tie = function () {
 }
 
 const onBoxClick = function (boxNum) {
+  // console.log(store.cells[boxNum])
   if (newGameCheck()) {
     xCount = 0
     oCount = 0
@@ -144,6 +149,9 @@ const onBoxClick = function (boxNum) {
     if (xCount === oCount && store.cells[boxNum] === '') {
       $('.result').css('visibility', 'hidden')
       $('#display-message').text(`It is O's turn. You're also O.`)
+      if (oCount >= 1) {
+        $('#display-message').text(`It is O's turn.`)
+      }
       store.cells[boxNum] = 'x'
       const data = {
         'cell': {
@@ -158,7 +166,11 @@ const onBoxClick = function (boxNum) {
       $(`#box${boxNum}`).text('x')
     } else if (xCount > oCount && store.cells[boxNum] === '') {
       $('.result').css('visibility', 'hidden')
-      $('#display-message').text(`It is X's turn. You're X.`)
+      $('#display-message').text(`It is X's turn. You're X`)
+      $('#display-message').text(`It is O's turn. You're also O.`)
+      if (xCount >= 1) {
+        $('#display-message').text(`It is X's turn.`)
+      }
       store.cells[boxNum] = 'o'
       $(`#box${boxNum}`).text('o')
       const data = {
@@ -171,7 +183,8 @@ const onBoxClick = function (boxNum) {
       api.updateGame(data)
         .then()
         .catch()
-    } else if (store.cells[boxNum] !== '') {
+    } else if (store.cells[boxNum] === 'x' || store.cells[boxNum] === 'o') {
+      // console.log(store.cells[boxNum])
       $('.result').css('visibility', 'visible')
       $('.result').text("You can't click there!")
       $('.result').css('color', 'red')
