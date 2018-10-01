@@ -1,6 +1,6 @@
 const store = require('../store.js')
 
-// const emptyGame = ['', '', '', '', '', '', '', '', '']
+const emptyGame = ['', '', '', '', '', '', '', '', '']
 
 const signUpSuccess = function (response) {
   $('#display-message').html('').hide()
@@ -18,6 +18,7 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (response) {
+  console.log(store.cells)
   $('#display-message').html('').hide()
   $('#sign-in-form').trigger('reset')
   $('#display-message').css('color', 'green')
@@ -59,8 +60,9 @@ const signOutSuccess = function () {
   $('#hide-stats, #get-stats, #sign-out-form, #stats-display, .result, .game-board, #change-password-btn, #change-password-form, #new-game, .game-buttons').addClass('hidden')
   $('#sign-in-btn, #sign-up-btn, .pic-container').removeClass('hidden')
   // store.game = null
-  for (let i = 0; i < 9; i++) {
-    store.cells[i] = null
+  store.cells = emptyGame
+  for (let i = 0; i < store.cells.length; i++) {
+    store.cells[i] = ''
     $(`#box${i}`).css('background-color', '#fff6e5')
     $(`#box${i}`).text('')
   }

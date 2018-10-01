@@ -7,7 +7,7 @@ const ui = require('./ui.js')
 
 const newGameCheck = function () {
   if (store.cells === undefined) {
-    alert('Please start new game.')
+    // alert('Please start new game.')
   } else {
     return true
   }
@@ -35,6 +35,7 @@ const resumeGame = function () {
 }
 
 const onNewGame = function () {
+  $('.result').text('')
   for (let i = 0; i < 9; i++) {
     $(`#box${i}`).css('background-color', '#fff6e5')
   }
@@ -57,8 +58,11 @@ const onNewGame = function () {
   xCount = 0
   oCount = 0
   $('.game-board').removeClass('hidden')
+  for (let i = 0; i < 9; i++) {
+    $(`#box${i}`).off()
+  }
   $('#box0, #box1, #box2, #box3, #box4, #box5, #box6, #box7, #box8').html('')
-  $('#box0').on('click', onBox0)
+  $('#box0').click(onBox0)
   $('#box1').on('click', onBox1)
   $('#box2').on('click', onBox2)
   $('#box3').on('click', onBox3)
@@ -136,7 +140,7 @@ const tie = function () {
 }
 
 const onBoxClick = function (boxNum) {
-  // console.log(store.cells[boxNum])
+  console.log(store.cells)
   if (newGameCheck()) {
     xCount = 0
     oCount = 0
@@ -186,14 +190,14 @@ const onBoxClick = function (boxNum) {
         .then()
         .catch()
     } else if (store.cells[boxNum] === 'x' || store.cells[boxNum] === 'o') {
-      // console.log(store.cells[boxNum])
+      console.log(store.cells)
+      console.log('cant click there!')
       $('.result').css('visibility', 'visible')
-      $('.result').text("You can't click there!")
-      $('.result').css('color', 'red')
-      $('.result').css('font-size', '30px')
+      $('.result').text(`You can't click there`)
+
     }
-    // console.log(xCount, oCount)
   }
+  // console.log(store.cells)
   victoryCheck2()
 }
 

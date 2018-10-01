@@ -9,7 +9,7 @@ const newGameSuccess = function (response) {
 }
 
 const newGameFailure = function () {
-  alert('new game button clicked')
+  // alert('new game button clicked')
   $('#game-message').text('New Game Has Begun')
 }
 
