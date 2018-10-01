@@ -20,6 +20,8 @@ let oCount
 const onResume = function () {
   if (store.cells.every(i => i !== null)) {
     $('#resume-game').removeClass('hidden')
+  } else if (store.cells === undefined) {
+    $('#resume-game').addClass('hidden')
   }
 }
 

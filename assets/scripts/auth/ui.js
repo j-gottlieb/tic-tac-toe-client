@@ -1,5 +1,7 @@
 const store = require('../store.js')
 
+// const emptyGame = ['', '', '', '', '', '', '', '', '']
+
 const signUpSuccess = function (response) {
   $('#display-message').html('').hide()
   $('#sign-up-form').trigger('reset')
@@ -10,7 +12,7 @@ const signUpSuccess = function (response) {
 
 const signUpFailure = function () {
   $('#display-message').html('').hide()
-  $('#display-message').html('Something went wrong, please try again').fadeToggle().delay(1000).fadeToggle()
+  $('#display-message').html('That username is taken. Please try another').fadeToggle().delay(1000).fadeToggle()
   $('#display-message').css('color', 'red')
   $('#sign-up-form').trigger('reset')
 }
@@ -19,7 +21,7 @@ const signInSuccess = function (response) {
   $('#display-message').html('').hide()
   $('#sign-in-form').trigger('reset')
   $('#display-message').css('color', 'green')
-  $('#sign-out-form,.game-buttons,#change-password-btn,#new-game').removeClass('hidden')
+  $('#get-stats, #sign-out-form,.game-buttons,#change-password-btn,#new-game').removeClass('hidden')
   $('#sign-in-btn,#sign-up-btn,#sign-in-form').addClass('hidden')
   store.user = response.user
   $('#display-message').text(`Welcome, ${store.user.email}`).fadeToggle().delay(1000).fadeToggle()
@@ -53,8 +55,14 @@ const signOutSuccess = function () {
   $('#display-message').removeClass('hidden')
   $('#display-message').text(`You have successfully signed out`).fadeToggle().delay(1000).fadeToggle()
   $('#display-message').css('color', 'green')
-  $('#sign-out-form, #stats-display, .result, .game-board, #change-password-btn, #change-password-form, #new-game, .game-buttons').addClass('hidden')
+  $('#hide-stats, #get-stats, #sign-out-form, #stats-display, .result, .game-board, #change-password-btn, #change-password-form, #new-game, .game-buttons').addClass('hidden')
   $('#sign-in-btn, #sign-up-btn, .pic-container').removeClass('hidden')
+  // store.game = null
+  for (let i = 0; i < 9; i++) {
+    store.cells[i] = null
+    $(`#box${i}`).css('background-color', '#fff6e5')
+    $(`#box${i}`).text('')
+  }
 }
 
 const signOutFailure = function () {

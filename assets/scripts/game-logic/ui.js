@@ -27,7 +27,7 @@ const getStatsSuccess = function (response) {
   for (let i = 0; i < game.length; i++) {
     userGames.push(game[i])
   }
-  console.log(userGames)
+  // console.log(userGames)
   if (userGames.length === 0) {
     $('#stats-display').append(`<p>Hey, ${store.user.email}! You haven't played any games yet!</p>`)
   } else {
