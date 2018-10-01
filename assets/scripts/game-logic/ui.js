@@ -21,16 +21,16 @@ const gameOverSuccess = function () {
 }
 
 const getStatsSuccess = function (response) {
+  $('#stats-display').html('')
   const userGames = []
   const game = response.games
-  for (let i = 0; i < response.games.length; i++) {
+  for (let i = 0; i < game.length; i++) {
     userGames.push(game[i])
   }
+  console.log(userGames)
   if (userGames.length === 0) {
-    $('#stats-display').html('')
     $('#stats-display').append(`<p>Hey, ${store.user.email}! You haven't played any games yet!</p>`)
   } else {
-    $('#stats-display').html('')
     // $('#stats-display').append(`<p>Hey, ${store.user.email}! Here are the games you've played:</p>`)
     // for (let i = 0; i < userGames.length; i++) {
     // $('#stats-display').append(`Game${i + 1}: id:${userGames[i].id}, moves: ${userGames[i].cells}</p>`)
@@ -55,6 +55,18 @@ const getStatsSuccess = function (response) {
     } else if (incompleted > 1 && completed === 1) {
       $('#stats-display').append(`Hey, ${store.user.email}!<br><br>You have
         ${completed} complete game and ${incompleted} incomplete games.`)
+    } else if (incompleted === 1 && completed === 0) {
+      $('#stats-display').append(`Hey, ${store.user.email}!<br><br>You have
+        ${completed} complete game and ${incompleted} incomplete games.`)
+    } else if (incompleted > 1 && completed === 0) {
+      $('#stats-display').append(`Hey, ${store.user.email}!<br><br>You have
+        ${completed} complete games and ${incompleted} incomplete games.`)
+    } else if (incompleted === 0 && completed === 1) {
+      $('#stats-display').append(`Hey, ${store.user.email}!<br><br>You have
+        ${completed} complete game and ${incompleted} incomplete games.`)
+    } else if (incompleted === 0 && completed > 1) {
+      $('#stats-display').append(`Hey, ${store.user.email}!<br><br>You have
+        ${completed} complete games and ${incompleted} incomplete games.`)
     }
   }
 }

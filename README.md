@@ -6,7 +6,7 @@ Technologies used:
 
 
 Planning:
-  Wireframes were the first thing I did. Even thought my actual site didn't end
+  Wireframes were the first thing I did. Even though my actual site didn't end
   up looking exactly like my wireframes, they helped me visualize the user
   experience before I built anything.
 
@@ -20,19 +20,24 @@ Planning:
   ui. Once those were completed, I began building my game logic with actual code
   to make sure it worked.
 
-  From there, I connected the ui to the game logic, through a
-  collection of event handlers. Then placed corresponding ajax requests to update
+  From there, I connected the ui to the game logic through a
+  series of event handlers. Then placed corresponding ajax requests to update
   the api in real time.
 
   Throughout this process, I used console.log and alert to help me track down and
   fix bugs.
 
+  I found the hardest part of the process to be imagining my way through every
+  possible combination of actions a user might take and making sure the ui
+  accurately displayed objects at the correct time and in the correct way.
+  Classmate feedback was crutial to squash all the bugs.
+
 
   User Stories:
-    As a user, I want to play tic-tac-toe against a friend
+    As a user, I want to play tic-tac-toe against a friend on one device.
     I want the game to store my wins and losses
     I want to sign up
     I want to sign in
     I want to change my password
     I want to sign out
-    I want to see my wins and losses
+    I want to see how many games I've played.
