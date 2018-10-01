@@ -1,6 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 
-
+body {
+  height: 100%;
+}
 
 .hidden {
   display: none;
@@ -10,7 +12,7 @@
   min-height: 80px;
 }
 
-container {
+.container {
   height: 100%;
 }
 
@@ -95,12 +97,28 @@ h1 {
 }
 
 footer {
-  display: absolute;
+  padding-right: 10px;
+  padding-left: 10px;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
   bottom: 0;
-  margin-top: 20px;
-  margin-right: 10px;
-  text-align: right;
+  right: 0;
+  left: 0;
+  margin-top: 50px;
   height: 25px;
+  width: 100%;
+  background-color: #e25214;
+  color: white;
+}
+
+.created {
+  right: 0;
+}
+
+.linkedin {
+  color: white;
+  left: 0;
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
@@ -129,6 +147,7 @@ footer {
   footer {
     margin-top: 20px;
     text-align: center;
+    font-size: 14px;
   }
   button {
     border: 1px solid black;
