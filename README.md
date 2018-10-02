@@ -3,6 +3,7 @@ Technologies used:
   scss
   javascript
   jquery
+  tic-tac-toe API
 
 
 Planning:
@@ -30,7 +31,9 @@ Planning:
   I found the hardest part of the process to be imagining my way through every
   possible combination of actions a user might take and making sure the ui
   accurately displayed objects at the correct time and in the correct way.
-  Classmate feedback was crutial to squash all the bugs.
+  Classmate feedback was crutial to squash all the bugs. Each instance of
+  confusion led to a breakthrough. This project was extremely educational and
+  revealed how informative the trial and error process is in coding.
 
 
   User Stories:
