@@ -19,7 +19,9 @@ Planning:
   Coding the site started with running user authentication curl-scripts and then
   building out the html and javascript to make those ajax requests through the
   ui. Once those were completed, I began building my game logic with actual code
-  to make sure it worked.
+  to make sure it worked. Big surprise... it didn't. I beat my head against
+  wall for a while trying to get my fancy array iteration methods to determine
+  win conditions, but in the end I hard coded all of the win conditions
 
   From there, I connected the ui to the game logic through a
   series of event handlers. Then placed corresponding ajax requests to update
@@ -35,6 +37,9 @@ Planning:
   confusion led to a breakthrough. This project was extremely educational and
   revealed how informative the trial and error process is in coding.
 
+  Given all I learned during this process, I will be much better able to plan my next
+   project ahead of time.
+
 
   User Stories:
     As a user, I want to play tic-tac-toe against a friend on one device.
@@ -44,3 +49,5 @@ Planning:
     I want to change my password
     I want to sign out
     I want to see how many games I've played.
+
+For wireframes, go to ./public/images
