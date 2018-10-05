@@ -140,7 +140,7 @@ const tie = function () {
 }
 
 const onBoxClick = function (boxNum) {
-  console.log(store.cells)
+  // console.log(store.cells)
   if (newGameCheck()) {
     xCount = 0
     oCount = 0
@@ -190,8 +190,8 @@ const onBoxClick = function (boxNum) {
         .then()
         .catch()
     } else if (store.cells[boxNum] === 'x' || store.cells[boxNum] === 'o') {
-      console.log(store.cells)
-      console.log('cant click there!')
+      // console.log(store.cells)
+      // console.log('cant click there!')
       $('.result').css('visibility', 'visible')
       $('.result').text(`You can't click there`)
 

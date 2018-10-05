@@ -18,7 +18,7 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (response) {
-  console.log(store.cells)
+  // console.log(store.cells)
   $('#display-message').html('').hide()
   $('#sign-in-form').trigger('reset')
   $('#display-message').css('color', 'green')

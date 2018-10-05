@@ -50,4 +50,5 @@ Planning:
     I want to sign out
     I want to see how many games I've played.
 
-For wireframes, go to ./public/images
+Wireframes can be found here:
+https://github.com/j-gottlieb/tic-tac-toe-client/tree/master/public/images
