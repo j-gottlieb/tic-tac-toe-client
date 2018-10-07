@@ -194,7 +194,6 @@ const onBoxClick = function (boxNum) {
       // console.log('cant click there!')
       $('.result').css('visibility', 'visible')
       $('.result').text(`You can't click there`)
-
     }
   }
   // console.log(store.cells)
@@ -230,7 +229,7 @@ const victoryCheck2 = function () {
     $('#box3, #box4, #box5').css('background-color', '#77e25f')
   } else if (cells[6] === 'x' && cells[6] === cells[7] && cells[6] === cells[8]) {
     victory()
-    $('#box6, #box7, #box7').css('background-color', '#77e25f')
+    $('#box6, #box7, #box8').css('background-color', '#77e25f')
   } else if (cells[0] === 'x' && cells[0] === cells[4] && cells[0] === cells[8]) {
     victory()
     $('#box0, #box4, #box8').css('background-color', '#77e25f')
@@ -254,7 +253,7 @@ const victoryCheck2 = function () {
     $('#box3, #box4, #box5').css('background-color', '#ea4646')
   } else if (cells[6] === 'o' && cells[6] === cells[7] && cells[6] === cells[8]) {
     defeat()
-    $('#box6, #box7, #box7').css('background-color', '#ea4646')
+    $('#box6, #box7, #box8').css('background-color', '#ea4646')
   } else if (cells[0] === 'o' && cells[0] === cells[4] && cells[0] === cells[8]) {
     defeat()
     $('#box0, #box4, #box8').css('background-color', '#ea4646')
