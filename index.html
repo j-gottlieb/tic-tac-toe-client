@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Jesse's Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Notable" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <div class="container">
+      <h1>Tic Tac Toe</h1>
+      <div class="buttons row align-items-center">
+        <button class="col" id="sign-up-btn" type="submit">Sign Up</button>
+        <button class="col" id="sign-in-btn"type="submit">Sign In</button>
+        <button class="col hidden" id="change-password-btn"type="submit" >Change Password</button>
+        <button class="col hidden" id="sign-out-form" type="submit">Sign Out</button>
+      </div>
+      <div class="row align-items-center forms">
+        <form id="sign-up-form" class="hidden col single-form">
+              <p>Enter User Information</p>
+              <input required type="email" name="credentials[email]" placeholder="Enter Email"/>
+              <input required name="credentials[password]" type="password" placeholder="Enter Password" />
+              <input required name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+              <input type="submit" />
+            </form>
+            <form id="sign-in-form" class="hidden single-form">
+              <p>Enter User Information</p>
+              <input required type="email" name="credentials[email]" placeholder="Enter Email" />
+              <input required name="credentials[password]" type="password" placeholder="Enter Password" />
+              <input type="submit" />
+            </form>
+            <form id="change-password-form" class="hidden single-form">
+              <input required type="password" name="passwords[old]" placeholder="Enter Old Password" />
+              <input required type="password" name="passwords[new]" placeholder="Enter New Password" />
+              <input type="submit" />
+            </form>
+            <div class="container game-buttons row align-items-center hidden">
+              <button class="col" id="get-stats" type="submit">Get Game Stats</button>
+              <button class="col hidden" id="hide-stats" type="submit">Hide Stats</button>
+              <button class="col hidden" id="new-game" type="submit">New Game</button>
+              <button class="col hidden" id="resume-game" type="submit">Resume Game</button>
+            </div>
+          </div>
+          <div class="message-block">
+          <div id="display-message" class="display-message">
+        </div>
+      </div>
+        <div id="stats-display" class="stats-display hidden"></div>
+    <div id="result" class="result hidden"></div>
+    <div class="container game-board hidden">
+      <div class="row top-row">
+        <div id="box0" class="box">1</div>
+        <div id="box1" class="box">2</div>
+        <div id="box2" class="box">3</div>
+      </div>
+      <div class="row middle-row">
+        <div id="box3" class="box">4</div>
+        <div id="box4" class="box">5</div>
+        <div id="box5" class="box">6</div>
+      </div>
+      <div class="row bottom-row">
+        <div id="box6" class="box">7</div>
+        <div id="box7" class="box">8</div>
+        <div id="box8" class="box">9</div>
+      </div>
+    </div>
+    <div class="container pic-container">
+      <img class="picture" alt="tic tac toe" src="./public/tic-tac-toe-2.jpg"/>
+  </div>
+  </div>
+  <footer>
+    <a class="linkedin" href="https://www.linkedin.com/in/jesse-gottlieb">LinkedIn</a>
+    <p class="created">Created by Jesse Gottlieb</p>
+  </footer>
+      </body>
+</html>
